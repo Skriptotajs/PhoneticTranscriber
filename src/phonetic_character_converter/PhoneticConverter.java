@@ -49,12 +49,14 @@ public class PhoneticConverter {
 	public String[] convert(String[] tokens) throws Exception
 	{		
 		String result[]=new String[tokens.length];
-		
+		int i=0;
 		for(String token : tokens)
 		{			
 			try
 			{
 				token=decoder.toIPAchar(token);
+				result[i]=encoder.formIPAchar(token);
+				i++;
 			}
 			catch(Exception e)
 			{

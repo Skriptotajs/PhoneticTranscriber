@@ -977,7 +977,7 @@ public class RulesTranscription
 			}
 			else
 			{
-				throw new Exception("Unrecognized character "+textToTranscribe.charAt(positionInTheString));
+				throw new Exception("Unrecognized character \""+textToTranscribe.charAt(positionInTheString)+"\" in word \""+textToTranscribe+"\"");
 			}
 		}
 		return resultingTranscription;

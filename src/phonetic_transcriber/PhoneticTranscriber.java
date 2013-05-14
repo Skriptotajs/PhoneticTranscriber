@@ -48,7 +48,7 @@ public class PhoneticTranscriber {
 		{
 			if(this.converter==null)
 			{
-				this.converter=new PhoneticConverter(new AplhabeticCharacterConverter(), converter);
+				this.converter=new PhoneticConverter(new AlphabeticCharacterConverter(), converter);
 			}
 			else
 			{

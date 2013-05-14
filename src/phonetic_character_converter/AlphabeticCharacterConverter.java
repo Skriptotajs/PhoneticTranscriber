@@ -1,6 +1,6 @@
 package phonetic_character_converter;
 
-public class AplhabeticCharacterConverter implements PhoneticCharacterConverter {
+public class AlphabeticCharacterConverter implements PhoneticCharacterConverter {
 
 	@Override
 	public String toIPAchar(String character) {

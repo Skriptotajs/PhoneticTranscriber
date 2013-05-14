@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import phonetic_character_converter.AlphaNumericCharacterConverter;
+import phonetic_character_converter.AlphabeticCharacterConverter;
 import phonetic_transcriber.PhoneticTranscriber;
 
 public class PhoneticTranscriberTests {
@@ -51,6 +53,14 @@ public class PhoneticTranscriberTests {
 		this._phoneticTranscriber=new PhoneticTranscriber("_", null);
 		String word="puškins";
 		String result="p_u_S_k_i_n_s";
+		assertEquals(result, this._phoneticTranscriber.transcribe(word));
+	}
+	
+	@Test
+	public void AlphaNumeric() {
+		this._phoneticTranscriber=new PhoneticTranscriber(" ", new AlphaNumericCharacterConverter());
+		String word="nospiedošs";
+		String result="n u035Co s p i035Ce d 0254 0283";
 		assertEquals(result, this._phoneticTranscriber.transcribe(word));
 	}
 

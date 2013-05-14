@@ -1,6 +1,6 @@
 package phonetic_character_converter;
 
-public class AplhaNumericCharacterConverter implements
+public class AlphaNumericCharacterConverter implements
 		PhoneticCharacterConverter {
 
 	@Override
