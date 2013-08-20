@@ -60,7 +60,7 @@ public class PhoneticConverter {
 			}
 			catch(Exception e)
 			{
-				throw new Exception(e.getMessage()+" in \""+tokens.toString()+"\"", e);
+				throw new Exception(e.getMessage()+" in \""+ArrayHelper.implode(tokens," ")+"\"", e);
 			}
 		}
 		
