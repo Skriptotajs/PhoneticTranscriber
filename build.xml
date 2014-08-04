@@ -1,0 +1,44 @@
+<project name="PhoneticTranscriber" default="clean-dist" basedir=".">
+
+  <description>
+    Build file for PhoneticTranscriber project
+  </description>
+  
+  <!-- set global properties for this build -->
+  <property name="phonetic_transcriber.src" location="src/phonetic_transcriber"/>
+  <property name="phonetic_character_converter.src" location="src/phonetic_character_converter"/>
+  <property name="helpers.src" location="src/helpers"/>
+  <property name="build" location="build"/>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+  </target>
+
+  <target name="compile" depends="init"
+          description="compile the source " >
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac encoding="UTF-8" includeantruntime="false" srcdir="${phonetic_transcriber.src}:${phonetic_character_converter.src}:${helpers.src}" destdir="${build}">
+
+  	</javac>
+  	
+  </target>
+
+  <target name="dist" depends="compile"
+          description="generate the distribution" >
+    <jar jarfile="PhoneticTranscriber.jar" basedir="${build}"/>
+
+  </target>
+	
+  <target name="clean"
+          description="clean up" >
+    <delete dir="${build}"/>
+  </target>
+
+  <target name="clean-dist" depends="clean,dist"
+          description="clean and generate the distribution" >
+  </target>
+
+</project>

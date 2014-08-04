@@ -30,9 +30,9 @@ public class PhoneticTranscriber {
 		
 		try {
 			_exceptionTranscriptions=new ExceptionTranscriptions();
-			_exceptionTranscriptions.InitExceptionTranscriptions("resources/PhoneticTranscriber/exceptionTranscriptions.db");
+			_exceptionTranscriptions.InitExceptionTranscriptions("dist/PhoneticTranscriber/exceptionTranscriptions.db");
 			_rulesTranscription=new RulesTranscription();
-			_rulesTranscription.InitTranscriptionRules("resources/PhoneticTranscriber/rules.xml", "resources/PhoneticTranscriber/metas.xml");
+			_rulesTranscription.InitTranscriptionRules("dist/PhoneticTranscriber/rules.xml", "dist/PhoneticTranscriber/metas.xml");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -57,7 +57,7 @@ public class PhoneticTranscriber {
 		}
 	}
 	
-	public String transcribe(String word)
+	public String transcribe(String word) throws Exception
 	{
 		String result=null;
 		String[] tokens;
@@ -79,9 +79,37 @@ public class PhoneticTranscriber {
 			
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			throw e;
 		}
 		return result;
+	}
+	
+	public String transcribePhrase(String phrase) throws Exception
+	{
+		if(!phrase.matches("^[a-zēūīāšģķļžčņ\\s]*$"))
+		{
+			throw new Exception("Unrecognized symbols in string!");
+		}
+		
+		String[] words=phrase.replaceAll("[\\s]+", " ").trim().split(" ");
+		
+		StringBuilder result=new StringBuilder();
+		boolean first=true;
+		for(String word : words)
+		{
+			result.append(this.transcribe(word));
+			if(first)
+			{
+				first=false;
+			}
+			else
+			{
+				result.append(' ');
+			}
+		}
+		
+		return result.toString();
 	}
 	
 	public void transcribeFile(String inputFilename, String outputFilename) throws Exception

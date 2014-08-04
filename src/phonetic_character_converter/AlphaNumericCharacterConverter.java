@@ -5,8 +5,308 @@ public class AlphaNumericCharacterConverter implements
 
 	@Override
 	public String toIPAchar(String character) {
-		// TODO Auto-generated method stub
-		return null;
+		String result=null;
+		String before=null;
+		String after=null;
+		int length=character.length();
+		if(length>4)//ja garāks par 1 simbolu, sākumā vai beigās var parādīties speciālie simboli
+		{
+			//speciālie simboli, kuri var parādīties beigās
+			switch(character.substring(length-4))
+			{
+			case "0306":
+				after="̆";
+				break;
+			case "02D1":
+				after="ˑ";
+				break;
+			case "02C0":
+				after="ˀ";
+				break;
+			case "032F":
+				after="̯";
+				break;
+			case "0329":
+				after="̩";
+				break;
+			}
+			
+			
+			//speciālie simboli, kuri var parādīties sākumā
+			switch(character.substring(0,4))
+			{
+			case "02CC":
+				before="ˌ";
+				break;
+			case "02C8":
+				before="ˈ";
+				break;
+			}
+			
+			if(after!=null)//ja ir simbols, kuru likt beigās, no vārda atmetam šo simboli
+			{
+				character=character.substring(0, length-4); //-2, jo pēdējais simbols ir length-1
+			}
+			
+			if(before!=null)//ja speciālais simbols bija sākumā, atnet speciālo simbolu
+			{
+				character=character.substring(4);
+			}
+			
+		}
+		
+		switch(character) //atrod atbilstošo IPA simbolu atlikušajai daļai bez speciālajiem simboliem
+		{
+		case "i":
+			result="i";
+			break;
+		case "SIL":
+		case "":
+			result="";
+			break;
+		case "i02D0":
+			result="iː";
+			break;
+		case "e":
+			result="e";
+			break;
+		case "e02D0":
+			result="eː";
+			break;
+		case "0251":
+			result="ɑ";
+			break;
+		case "025102D0":
+			result="ɑː";
+			break;
+		case "00E6":
+			result="æ";
+			break;
+		case "00E602D0":
+			result="æː";
+			break;
+		case "u":
+			result="u";
+		break;
+		case "u02D0":
+			result="uː";
+			break;
+		case "0254":
+			result="o";
+			break;
+		case "025402D0":
+			result="oː";
+			break;
+		case "i035Cu":
+			result="i͜u";
+			break;
+		case "i035Ce":
+			result="i͜e";
+			break;
+		case "0251035Ci":
+			result="ɑ͜i";
+			break;
+		case "0251035Cu":
+			result="ɑ͜u";
+			break;
+		case "e035Ci":
+			result="e͜i";
+			break;
+		case "u035Co":
+			result="u͜o";
+			break;
+		case "ui":
+			result="u͜i";
+			break;
+		case "eu":
+			result="e͜u";
+			break;
+		case "o035Cu":
+			result="o͜u";
+			break;
+		case "0254035Ci":
+			result="o͜i";
+			break;
+		case "b":
+			result="b";
+			break;
+		case "b02D0":
+			result="bː";
+			break;
+		case "d":
+			result="d";
+			break;
+		case "d02D0":
+			result="dː";
+			break;
+		case "f":
+			result="f";
+			break;
+		case "f02D0":
+			result="fː";
+			break;
+		case "g":
+			result="ɡ";
+			break;
+		case "ɡ02D0":
+			result="ɡː";
+			break;
+		case "025F":
+			result="ɟ";
+			break;
+		case "025F02D0":
+			result="ɟː";
+			break;
+		case "x":
+			result="x";
+			break;
+		case "x02D0":
+			result="xː";
+			break;
+		case "029D":
+			result="ʝ";
+			break;
+		case "029D02D0":
+			result="ʝː";
+			break;
+		case "k":
+			result="k";
+			break;
+		case "k02D0":
+			result="kː";
+			break;
+		case "c":
+			result="c";
+			break;
+		case "c02D0":
+			result="cː";
+			break;
+		case "l":
+			result="l";
+			break;
+		case "l02D0":
+			result="lː";
+			break;
+		case "028E":
+			result="ʎ";
+			break;
+		case "028E02D0":
+			result="ʎː";
+			break;
+		case "m":
+			result="m";
+			break;
+		case "m02D0":
+			result="mː";
+			break;
+		case "n":
+			result="n";
+			break;
+		case "n02D0":
+			result="nː";
+			break;
+		case "0272":
+			result="ɲ";
+			break;
+		case "027202D0":
+			result="ɲː";
+			break;
+		case "0148":
+			result="ň";
+			break;
+		case "014802D0":
+			result="ňː";
+			break;
+		case "p":
+			result="p";
+			break;
+		case "p02D0":
+			result="pː";
+			break;
+		case "r":
+			result="r";
+			break;
+		case "r02D0":
+			result="rː";
+			break;
+		case "s":
+			result="s";
+			break;
+		case "s02D0":
+			result="sː";
+			break;
+		case "0283":
+			result="ʃ";
+			break;
+		case "028302D0":
+			result="ʃː";
+			break;
+		case "t":
+			result="t";
+			break;
+		case "t02D0":
+			result="tː";
+			break;
+		case "v":
+			result="v";
+			break;
+		case "v02D0":
+			result="vː";
+			break;
+		case "z":
+			result="z";
+			break;
+		case "z02D0":
+			result="zː";
+			break;
+		case "0293":
+			result="ʓ";
+			break;
+		case "029302D0":
+			result="ʓː";
+			break;
+		case "02A3":
+			result="ʣ";
+			break;
+		case "02A302D0":
+			result="ʣː";
+			break;
+		case "02A4":
+			result="ʤ";
+			break;
+		case "02A402D0":
+			result="ʤː";
+			break;
+		case "02A6":
+			result="ʦ";
+			break;
+		case "02A602D0":
+			result="ʦː";
+			break;
+		case "02A7":
+			result="ʧ";
+			break;
+		case "02A702D0":
+			result="ʧː";
+			break;
+		}
+		
+		if(result==null)
+		{
+			return null;
+		}
+		
+		if(before!=null) //ja bija speciālais simbols sākumā, pievienot pārkonvertēto sākuma simbolu rezultātam
+		{
+			result=before+result;
+		}
+		
+		if(after!=null) //pēc alternatīvas kā sākumā 
+		{
+			result+=after;
+		}
+		
+		return result;
 	}
 
 	@Override
