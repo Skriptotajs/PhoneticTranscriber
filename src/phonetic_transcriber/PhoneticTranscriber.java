@@ -98,15 +98,15 @@ public class PhoneticTranscriber {
 		boolean first=true;
 		for(String word : words)
 		{
-			result.append(this.transcribe(word));
 			if(first)
 			{
 				first=false;
 			}
 			else
 			{
-				result.append(' ');
+				result.append(" . ");
 			}
+			result.append(this.transcribe(word));
 		}
 		
 		return result.toString();
