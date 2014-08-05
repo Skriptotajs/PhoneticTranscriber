@@ -77,7 +77,7 @@ public class TranscriptionMetaRules {
 
 		char data;
 		//Open an input stream to a rules xml file.
-		FileInputStream fstream = new FileInputStream("resources/PhoneticTranscriber/metas.xml");
+		FileInputStream fstream = new FileInputStream(_metaRulesFileName);
 		// Get the object of DataInputStream
 		DataInputStream in = new DataInputStream(fstream);
 		BufferedReader br = new BufferedReader(new InputStreamReader(in));
