@@ -16,7 +16,7 @@ public class PhoneticTranscriberTests {
 
 	
 	@Test
-	public void testTranscribe() {
+	public void testTranscribe() throws Exception{
 		this._phoneticTranscriber=new PhoneticTranscriber("_", null);
 		String word="apli";
 		String result="a_p_l_ix";
@@ -25,7 +25,7 @@ public class PhoneticTranscriberTests {
 	
 
 	@Test
-	public void testExceptionTranscribe() {
+	public void testExceptionTranscribe() throws Exception {
 		this._phoneticTranscriber=new PhoneticTranscriber("_", null);
 		String word="apģērbti";
 		String result="a_p_G_EE_r_p_t_ix";
@@ -33,7 +33,7 @@ public class PhoneticTranscriberTests {
 	}
 	
 	@Test
-	public void ēķī() {
+	public void ēķī()  throws Exception {
 		this._phoneticTranscriber=new PhoneticTranscriber("_", null);
 		String word="ēķī";
 		String result="ee_K_ii";
@@ -41,7 +41,7 @@ public class PhoneticTranscriberTests {
 	}
 	
 	@Test
-	public void ē() {
+	public void ē()  throws Exception {
 		this._phoneticTranscriber=new PhoneticTranscriber("_", null);
 		String word="ē";
 		String result="EE";
@@ -49,7 +49,7 @@ public class PhoneticTranscriberTests {
 	}
 	
 	@Test
-	public void puškins() {
+	public void puškins() throws Exception {
 		this._phoneticTranscriber=new PhoneticTranscriber("_", null);
 		String word="puškins";
 		String result="p_u_S_k_i_n_s";
@@ -57,7 +57,7 @@ public class PhoneticTranscriberTests {
 	}
 	
 	@Test
-	public void AlphaNumeric() {
+	public void AlphaNumeric()  throws Exception{
 		this._phoneticTranscriber=new PhoneticTranscriber(" ", new AlphaNumericCharacterConverter());
 		String word="nospiedošs";
 		String result="n u035Co s p i035Ce d 0254 0283";
