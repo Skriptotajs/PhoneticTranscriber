@@ -3,10 +3,7 @@
 */
 package phonetic_transcriber;
 
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class TranscriptionMetaRules {
 	/*
@@ -76,10 +73,13 @@ public class TranscriptionMetaRules {
 		//To validate chars, we need access to String functions.
 
 		char data;
-		//Open an input stream to a rules xml file.
-		FileInputStream fstream = new FileInputStream(_metaRulesFileName);
-		// Get the object of DataInputStream
-		DataInputStream in = new DataInputStream(fstream);
+        InputStream in = getClass().getClassLoader().getResourceAsStream(_metaRulesFileName);
+        if (in == null) {
+            //Open an input stream to a rules xml file.
+            FileInputStream fstream = new FileInputStream("dist/PhoneticTranscriber/" + _metaRulesFileName);
+            // Get the object of DataInputStream
+            in = new DataInputStream(fstream);
+        }
 		BufferedReader br = new BufferedReader(new InputStreamReader(in));
 		//Current tag name
 		String tagName = "";

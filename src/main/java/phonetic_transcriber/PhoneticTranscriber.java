@@ -30,9 +30,9 @@ public class PhoneticTranscriber {
 		
 		try {
 			_exceptionTranscriptions=new ExceptionTranscriptions();
-			_exceptionTranscriptions.InitExceptionTranscriptions("dist/PhoneticTranscriber/exceptionTranscriptions.db");
+			_exceptionTranscriptions.InitExceptionTranscriptions("exceptionTranscriptions.db");
 			_rulesTranscription=new RulesTranscription();
-			_rulesTranscription.InitTranscriptionRules("dist/PhoneticTranscriber/rules.xml", "dist/PhoneticTranscriber/metas.xml");
+			_rulesTranscription.InitTranscriptionRules("rules.xml", "metas.xml");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

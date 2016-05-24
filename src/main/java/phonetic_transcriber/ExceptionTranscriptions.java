@@ -4,6 +4,7 @@
 package phonetic_transcriber;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.Scanner;
 
 
@@ -41,8 +42,13 @@ public class ExceptionTranscriptions
 		String key="", value="";
 		try
 		{
-			
-			Scanner sc = new Scanner(new File(this._exceptionFileName));
+            Scanner sc;
+            InputStream stream = getClass().getClassLoader().getResourceAsStream(this._exceptionFileName);
+            if (stream != null) {
+                sc = new Scanner(stream);
+            } else {
+                sc = new Scanner(new File("dist/PhoneticTranscriber/" + this._exceptionFileName));
+            }
 			while (sc.hasNext())
 			{
 				key=sc.next();

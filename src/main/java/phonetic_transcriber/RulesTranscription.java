@@ -3,10 +3,7 @@
 */
 package phonetic_transcriber;
 
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 
 /**
  Transcription rules list with searching and replacement functionality for getting Strings transcribed in the phonetic alphabet.
@@ -141,10 +138,13 @@ public class RulesTranscription
 		//To validate chars, we need access to String functions.
 		//StringFunctions StringFunctions;
 		char data;
-		//Open an input stream to a rules xml file.
-		FileInputStream fstream = new FileInputStream(this._rulesFileName);
-		// Get the object of DataInputStream
-		DataInputStream in = new DataInputStream(fstream);
+		InputStream in = getClass().getClassLoader().getResourceAsStream(_rulesFileName);
+		if (in == null) {
+			//Open an input stream to a rules xml file.
+			FileInputStream fstream = new FileInputStream("dist/PhoneticTranscriber/" + _rulesFileName);
+			// Get the object of DataInputStream
+			in = new DataInputStream(fstream);
+		}
 		BufferedReader br = new BufferedReader(new InputStreamReader(in));
 		//Current tag name
 		String tagName = "";

@@ -5,16 +5,12 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import phonetic_character_converter.AlphaNumericCharacterConverter;
-import phonetic_character_converter.AlphabeticCharacterConverter;
 import phonetic_transcriber.PhoneticTranscriber;
 
 public class PhoneticTranscriberTests {
 	
 	private PhoneticTranscriber _phoneticTranscriber;
 
-
-
-	
 	@Test
 	public void testTranscribe() throws Exception{
 		this._phoneticTranscriber=new PhoneticTranscriber("_", null);
@@ -22,7 +18,6 @@ public class PhoneticTranscriberTests {
 		String result="a_p_l_ix";
 		assertEquals(result, this._phoneticTranscriber.transcribe(word));
 	}
-	
 
 	@Test
 	public void testExceptionTranscribe() throws Exception {

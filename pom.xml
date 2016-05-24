@@ -5,7 +5,7 @@
 	<groupId>lv.ailab.morphology</groupId>
 	<artifactId>phonetictranscriber</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Generation of phonetic pronounciation transcription for latvian</name>
 	<url>https://github.com/Skriptotajs/PhoneticTranscriber</url>
 
